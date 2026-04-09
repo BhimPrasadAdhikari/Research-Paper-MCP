@@ -1,0 +1,41 @@
+{
+  "2202.09061v4": {
+    "title": "VLP: A Survey on Vision-Language Pre-training",
+    "authors": [
+      "Feilong Chen",
+      "Duzhen Zhang",
+      "Minglun Han",
+      "Xiuyi Chen",
+      "Jing Shi",
+      "Shuang Xu",
+      "Bo Xu"
+    ],
+    "summary": "In the past few years, the emergence of pre-training models has brought uni-modal fields such as computer vision (CV) and natural language processing (NLP) to a new era. Substantial works have shown they are beneficial for downstream uni-modal tasks and avoid training a new model from scratch. So can such pre-trained models be applied to multi-modal tasks? Researchers have explored this problem and made significant progress. This paper surveys recent advances and new frontiers in vision-language pre-training (VLP), including image-text and video-text pre-training. To give readers a better overall grasp of VLP, we first review its recent advances from five aspects: feature extraction, model architecture, pre-training objectives, pre-training datasets, and downstream tasks. Then, we summarize the specific VLP models in detail. Finally, we discuss the new frontiers in VLP. To the best of our knowledge, this is the first survey focused on VLP. We hope that this survey can shed light on future research in the VLP field.",
+    "pdf_url": "https://arxiv.org/pdf/2202.09061v4",
+    "published": "2022-02-18"
+  },
+  "2504.09480v1": {
+    "title": "Vision-Language Model for Object Detection and Segmentation: A Review and Evaluation",
+    "authors": [
+      "Yongchao Feng",
+      "Yajie Liu",
+      "Shuai Yang",
+      "Wenrui Cai",
+      "Jinqing Zhang",
+      "Qiqi Zhan",
+      "Ziyue Huang",
+      "Hongxi Yan",
+      "Qiao Wan",
+      "Chenguang Liu",
+      "Junzhe Wang",
+      "Jiahui Lv",
+      "Ziqi Liu",
+      "Tengyuan Shi",
+      "Qingjie Liu",
+      "Yunhong Wang"
+    ],
+    "summary": "Vision-Language Model (VLM) have gained widespread adoption in Open-Vocabulary (OV) object detection and segmentation tasks. Despite they have shown promise on OV-related tasks, their effectiveness in conventional vision tasks has thus far been unevaluated. In this work, we present the systematic review of VLM-based detection and segmentation, view VLM as the foundational model and conduct comprehensive evaluations across multiple downstream tasks for the first time: 1) The evaluation spans eight detection scenarios (closed-set detection, domain adaptation, crowded objects, etc.) and eight segmentation scenarios (few-shot, open-world, small object, etc.), revealing distinct performance advantages and limitations of various VLM architectures across tasks. 2) As for detection tasks, we evaluate VLMs under three finetuning granularities: \\textit{zero prediction}, \\textit{visual fine-tuning}, and \\textit{text prompt}, and further analyze how different finetuning strategies impact performance under varied task. 3) Based on empirical findings, we provide in-depth analysis of the correlations between task characteristics, model architectures, and training methodologies, offering insights for future VLM design. 4) We believe that this work shall be valuable to the pattern recognition experts working in the fields of computer vision, multimodal learning, and vision foundation models by introducing them to the problem, and familiarizing them with the current status of the progress while providing promising directions for future research. A project associated with this review and evaluation has been created at https://github.com/better-chao/perceptual_abilities_evaluation.",
+    "pdf_url": "https://arxiv.org/pdf/2504.09480v1",
+    "published": "2025-04-13"
+  }
+}
