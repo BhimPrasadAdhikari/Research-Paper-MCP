@@ -24,10 +24,26 @@ async def main():
                     {"topic": "vision language model", "max_results": 2}
                 )
 
-                print(result) # list of paper ids
+                # test the extract_info tool 
+
+                # The MCP tool returns a list of items as multiple TextContent objects
+                paper_ids = [content.text for content in result.content if content.type == "text"]
+
+                print("\nextract info tool response: ")
+
+                for paper_id in paper_ids:
+                    print(f"Extracting info for {paper_id}...")
+                    paper_info = await session.call_tool(
+                        "extract_info",
+                        {"paper_id": paper_id}
+                    )
+                    
+                    # Print the title/content just to make it readable
+                    print(paper_info.content[0].text)
+                    print("-" * 50)
                 
     except Exception as e:
-        print("Failed to connect", e)
+        print("Failed to connect:", e)
         
 if __name__ == "__main__":
     asyncio.run(main())
