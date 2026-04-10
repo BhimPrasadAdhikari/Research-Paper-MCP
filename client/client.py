@@ -41,6 +41,27 @@ async def main():
                     # Print the title/content just to make it readable
                     print(paper_info.content[0].text)
                     print("-" * 50)
+
+                # checking get_topic_papers
+
+                resources_resp = await session.list_resources()
+                print("\nResources offerd by server:")
+                for res in resources_resp.resources:
+                    print(f"- {res.name} | uri={res.uri} | desc={res.description}")
+                
+                # trying to read the "papers://folders" resource
+                uri = "papers://folders"
+                print(f"\nReading resource {uri} ...")
+                try:
+                    read_res = await session.read_resource(uri)
+                    for item in read_res.contents:
+                        text = getattr(item, "text", None)
+                        if text is not None:
+                            print("\n Resource Text ")
+                            print(text)
+                except Exception as e:
+                    print("Failed to read resource:", e)
+
                 
     except Exception as e:
         print("Failed to connect:", e)
