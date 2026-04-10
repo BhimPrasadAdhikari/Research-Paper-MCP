@@ -97,7 +97,7 @@ def get_available_folders() -> str:
             topic_path = os.path.join(PAPER_DIR, topic_dir)
 
             if os.path.isdir(topic_path):
-                paper_file = os.path.join(topic_path, "papers_info.json")
+                paper_file = os.path.join(topic_path, "paper_info.json")
 
                 if os.path.isfile(paper_file):
                     folders.append(topic_dir) 
