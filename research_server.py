@@ -85,6 +85,33 @@ def extract_info(paper_id: str) -> str:
                     continue 
     return f"There's no saved information related to paper {paper_id}"
 
+@mcp.resource("papers://folders")
+def get_available_folders() -> str:
+    """
+    List all available topic folders in the papers directory
+    """
+    folders = []
+
+    if os.path.exists(PAPER_DIR):
+        for topic_dir in os.listdir(PAPER_DIR):
+            topic_path = os.path.join(PAPER_DIR, topic_dir)
+
+            if os.path.isdir(topic_path):
+                paper_file = os.path.join(topic_path, "papers_info.json")
+
+                if os.path.isfile(paper_file):
+                    folders.append(topic_dir) 
+    
+    # create a simple MD list 
+    content = "# Available Topics\n\n"
+    if folders:
+        for folder in folders:
+            content += f"- {folder}\n"
+        content += f"\nUse @{folder} to access papers in that topic.\n"
+    else:
+        content += "No topics found\n"
+    
+    return content
 
 if __name__ == "__main__":
     mcp.run(transport="sse")
