@@ -62,7 +62,7 @@ async def main():
                 except Exception as e:
                     print("Failed to read resource:", e)
                 
-                list available resource templates (dynamic resources):
+                # list available resource templates (dynamic resources):
                 templates_resp = await session.list_resource_templates()
                 print("Resource Templates offered by server: ")
                 for tmpl in templates_resp.resourceTemplates:
