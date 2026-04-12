@@ -61,6 +61,28 @@ async def main():
                             print(text)
                 except Exception as e:
                     print("Failed to read resource:", e)
+                
+                list available resource templates (dynamic resources):
+                templates_resp = await session.list_resource_templates()
+                print("Resource Templates offered by server: ")
+                for tmpl in templates_resp.resourceTemplates:
+                    print(f"{tmpl} | uriTemplate: {tmpl.uriTemplate} | desc={tmpl.description}")
+
+                topic = "vision language model"
+                uri = f"papers://{topic.replace(' ', '_')}"
+
+                try:
+                    read_res = await session.read_resource(uri)
+                    for item in read_res.contents:
+                        text = getattr(item, "text", None)
+                        if text is not None:
+                            print("Resource Text")
+                            print(text) 
+                except Exception as e:
+                    print("Failed to read resource: ", e)
+
+
+
 
                 
     except Exception as e:
