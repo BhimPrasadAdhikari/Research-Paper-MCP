@@ -113,5 +113,37 @@ def get_available_folders() -> str:
     
     return content
 
+@mcp.resource("papers://{topic}")
+def get_topic_papers(topic: str) -> str:
+    """
+    Get detailed information about papers on a specific topic
+    """
+    topic_dir = topic.lower().replace(" ", "_")
+    papers_file = os.path.join(PAPER_DIR, topic_dir, "paper_info.json")
+
+    if not os.path.exists(papers_file):
+        return f"No papers found for specified topic."
+    try:
+        with open(papers_file, 'r') as json_file:
+            papers_data = json.load(json_file)
+        
+        content = f"Papers on {topic.replace('_', ' ').title()}"
+        content += f"Total papers: {len(papers_data)}"
+
+        for paper_id, paper_info in papers_data.items():
+            content += f"{paper_info['title']}\n"
+            content += f"Paper Id: {paper_id}\n"
+            content += f"Authors: {', '.join(paper_info.get('authors', []))}\n"
+            content += f"Published: {paper_info['published']}\n"
+            content += f"PDF URL: [{paper_info['pdf_url']}]\n\n"
+
+            content += f"### Summary\n"
+            content += f"{paper_info['summary'][:500]}...\n\n"
+        
+        return content
+    except json.JSONDecodeError:
+        return f"Error reading papers data for {topic}. The paper data file is corrupted."
+
+
 if __name__ == "__main__":
     mcp.run(transport="sse")
